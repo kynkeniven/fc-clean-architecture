@@ -30,4 +30,10 @@ describe("Product unit tests", () => {
     product.changePrice(150);
     expect(product.price).toBe(150);
   });
+
+  it("should throw error when name and id are empty and price is zero os less", () => {
+    expect(() => {
+      let customer = new Product("", "", 0);
+    }).toThrowError("product: Id is required,product: Name is required,product: Price must be greater than zero");
+  });
 });
